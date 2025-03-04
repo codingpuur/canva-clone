@@ -31,7 +31,7 @@ export default function FlipElementComponent({
     
     dispatch(updateElement({
       id: element.id,
-      updates: { flipped: !element.flipped },
+      updates: { flipped: !element.flipped } as any,
     }));
   };
   

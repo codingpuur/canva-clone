@@ -3,8 +3,8 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '@/lib/store/store';
-import { fetchRandomUser, checkAuth } from '@/lib/store/slices/authSlice';
+import { AppDispatch, RootState } from '@/lib/store/store';
+import { checkAuth, fetchRandomUser } from '@/lib/store/slices/authSlice';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -13,7 +13,8 @@ import { Loader2 } from 'lucide-react';
 
 export default function LoginPage() {
   const router = useRouter();
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
+  // const dispatch = useDispatch();
   const { isAuthenticated, loading, error } = useSelector((state: RootState) => state.auth);
   
   useEffect(() => {

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/lib/store/store';
 import { checkAuth } from '@/lib/store/slices/authSlice';
 import { loadFromLocalStorage, createProject, changePage, selectElement } from '@/lib/store/slices/canvasSlice';
-import { useWebSocket } from '@/lib/hooks/useWebSocket';
+
 import { useAutoSave } from '@/lib/hooks/useAutoSave';
 import { useWeatherUpdates } from '@/lib/hooks/useWeatherUpdates';
 import EditorHeader from '@/components/editor/EditorHeader';
@@ -26,8 +26,7 @@ export default function EditorPage() {
   const [propertiesPanelOpen, setPropertiesPanelOpen] = useState(true);
   const [collaborationPanelOpen, setCollaborationPanelOpen] = useState(false);
   
-  // Initialize hooks
-  // const { connected, updateCursorPosition } = useWebSocket();
+
   const { saveNow } = useAutoSave();
   const { refreshWeather } = useWeatherUpdates();
   
@@ -112,12 +111,7 @@ export default function EditorPage() {
             />
           </div>
         </main>
-        
-        {/* {propertiesPanelOpen && (
-          <ElementProperties 
-            onClose={() => setPropertiesPanelOpen(false)}
-          />
-        )} */}
+   
         
         {collaborationPanelOpen && (
           <CollaborationPanel 

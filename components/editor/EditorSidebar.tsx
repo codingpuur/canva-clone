@@ -59,7 +59,7 @@ export default function EditorSidebar({
     });
   };
 
-  const handleAdd = (elementType) => {
+  const handleAdd = (elementType:string) => {
     if (elementType === "text") {
       const textElement: TextElement = {
         id: uuidv4(),

@@ -10,11 +10,11 @@ export function useWeatherUpdates(interval = 300000) { // 5 minutes
   
   useEffect(() => {
     
-    dispatch(fetchWeather('india'));
+    dispatch(fetchWeather('india') as any);
     
     
     timerRef.current = setInterval(() => {
-      dispatch(fetchWeather('india'));
+      dispatch(fetchWeather('india') as any);
     }, interval);
     
     
@@ -27,7 +27,7 @@ export function useWeatherUpdates(interval = 300000) { // 5 minutes
   
   return {
     refreshWeather: () => {
-      dispatch(fetchWeather('india'));
+      dispatch(fetchWeather('india') as any);
     },
   };
 }
